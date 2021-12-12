@@ -33,6 +33,8 @@ clion-cmake/
 .catkin_tools/*
 .catkin_tools/
 
+paddle_inference/
+
 **.swp
 
 # binary files

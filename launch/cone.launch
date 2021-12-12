@@ -1,0 +1,5 @@
+<launch>
+    <node name="cone_node" pkg="cone" type="cone" output="screen">
+        <rosparam command="load" file="$(find cone)/config/cone.yaml" /> <!--Load parameters from config files-->
+    </node>
+</launch>
