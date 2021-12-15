@@ -34,6 +34,7 @@ clion-cmake/
 .catkin_tools/
 
 paddle_inference/
+model/
 
 **.swp
 
