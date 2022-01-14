@@ -34,7 +34,7 @@ std::shared_ptr<Predictor> Cone::InitPredictor() {
   config.SetModel("/home/feng1909/cone-detection/src/cone-detection/model/model.pdmodel", "/home/feng1909/cone-detection/src/cone-detection/model/model.pdiparams");
   config.EnableUseGpu(1000, 0);
   config.EnableMemoryOptim();
-  //config.EnableTensorRtEngine(1 << 30, FLAGS_batch_size, 10, PrecisionType::kFloat32, false, false);
+  config.EnableTensorRtEngine(1 << 30, 1, 10, PrecisionType::kFloat32, false, false);
   return CreatePredictor(config);
 }
 
