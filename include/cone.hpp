@@ -40,6 +40,7 @@
 #include <opencv2/objdetect/objdetect.hpp>
 // Paddle
 #include "paddle_inference_api.h"
+#include "object_detector.h"
 #include <chrono>
 #include <iostream>
 #include <memory>
@@ -72,25 +73,38 @@ class Cone {
   void runAlgorithm();
   bool flag;
 
+  // PaddleDetection::ObjectDetector objector_;
+
  private:
 
   ros::NodeHandle &nh_;
 
   std::string model_file;
   std::string param_file;
-  std::shared_ptr<Predictor>InitPredictor();
-void run(Predictor *predictor, const std::vector<float> &input,
-         const std::vector<int> &input_shape, const std::vector<float> &input_im,
-         const std::vector<int> &input_im_shape, std::vector<float> *out_data);
-  fsd_common_msgs::ConeDetections cone_current;
 
-  std::shared_ptr<Predictor> predictor;
-  std::vector<int> input_im_shape;
-  std::vector<float> out_data;
-  const int height = 1920;
-  const int width = 1180;
-  const int channels = 3;
-  std::vector<int>input_shape;
+  PaddleDetection::ObjectDetector Detector_Init(const std::string& model_dir, 
+                                                const std::string& device,
+                                                bool use_mkldnn,
+                                                int cpu_threads,
+                                                const std::string& run_mode,
+                                                const int batch_size,
+                                                const int gpu_id,
+                                                const int trt_min_shape,
+                                                const int trt_max_shape,
+                                                const int trt_opt_shape,
+                                                bool trt_calib_mode);
+
+  // const std::string& model_dir, 
+  //                         const std::string& device="CPU",
+  //                         bool use_mkldnn=false,
+  //                         int cpu_threads=1,
+  //                         const std::string& run_mode="fluid",
+  //                         const int batch_size=1,
+  //                         const int gpu_id=0,
+  //                         const int trt_min_shape=1,
+  //                         const int trt_max_shape=1280,
+  //                         const int trt_opt_shape=640,
+  //                         bool trt_calib_mode=false
   cv::Mat image_;
 
 };
