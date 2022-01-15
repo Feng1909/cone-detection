@@ -20,7 +20,7 @@ find_package(catkin REQUIRED COMPONENTS
   pcl_ros
   pcl_conversions
 )
-find_package(OpenCV REQUIRED PATHS ${OpenCV_LIBS}/share/OpenCV NO_DEFAULT_PATH)
+find_package(OpenCV REQUIRED)
 catkin_package(
   INCLUDE_DIRS
   LIBRARIES
@@ -63,6 +63,7 @@ include_directories("${PADDLE_DIR}/third_party/install/protobuf/include")
 include_directories("${PADDLE_DIR}/third_party/install/glog/include")
 include_directories("${PADDLE_DIR}/third_party/install/gflags/include")
 include_directories("${PADDLE_DIR}/third_party/install/xxhash/include")
+# include_directories("${PADDLE_DIR}/third_party/install/mklml/include")
 include_directories("${PADDLE_DIR}/third_party/boost")
 include_directories("${PADDLE_DIR}/third_party/eigen3")
 include_directories("${PADDLE_DIR}/paddle/include")
@@ -71,6 +72,7 @@ link_directories("${PADDLE_DIR}/third_party/install/protobuf/lib")
 link_directories("${PADDLE_DIR}/third_party/install/glog/lib")
 link_directories("${PADDLE_DIR}/third_party/install/gflags/lib")
 link_directories("${PADDLE_DIR}/third_party/install/xxhash/lib")
+# link_directories("${PADDLE_DIR}/third_party/install/mklml/lib")
 link_directories("${PADDLE_DIR}/paddle/lib/")
 link_directories("${CMAKE_CURRENT_BINARY_DIR}")
 link_directories("${PADDLE_DIR}/paddle/lib")

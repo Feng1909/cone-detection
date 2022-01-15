@@ -82,18 +82,6 @@ class Cone {
   std::string model_file;
   std::string param_file;
 
-  PaddleDetection::ObjectDetector Detector_Init(const std::string& model_dir, 
-                                                const std::string& device,
-                                                bool use_mkldnn,
-                                                int cpu_threads,
-                                                const std::string& run_mode,
-                                                const int batch_size,
-                                                const int gpu_id,
-                                                const int trt_min_shape,
-                                                const int trt_max_shape,
-                                                const int trt_opt_shape,
-                                                bool trt_calib_mode);
-
   // const std::string& model_dir, 
   //                         const std::string& device="CPU",
   //                         bool use_mkldnn=false,
